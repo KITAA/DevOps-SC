@@ -1,49 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+<jmeterTestPlan version="1.2" properties="1.8">
   <hashTree>
-    <TestPlan testname="Simple Test Plan" enabled="true">
-      <!-- Test Plan Specific Attributes -->
-      <stringProp name="TestPlan.comments"></stringProp>
-      <stringProp name="TestPlan.user_defined_variables"></stringProp>
-      <boolProp name="TestPlan.enable_tearDown_threadgroups">false</boolProp>
-      <stringProp name="TestPlan.teardown_on_shutdown">false</stringProp>
-      <stringProp name="TestPlan.serialize_threadgroups">false</stringProp>
-      <stringProp name="TestPlan.scheduler">false</stringProp>
-      <stringProp name="TestPlan.duration"></stringProp>
-      <stringProp name="TestPlan.delay"></stringProp>
-      <stringProp name="TestPlan.connect_timeout"></stringProp>
-      <stringProp name="TestPlan.response_timeout"></stringProp>
-      <!-- guiclass and testclass for the TestPlan -->
-      <stringProp name="TestPlan.guiclass">TestPlanGui</stringProp>
-      <stringProp name="TestPlan.testclass">TestPlan</stringProp>
-      <hashTree>
-        <ThreadGroup testname="Users" enabled="true">
-          <!-- Thread Group Specific Attributes -->
-          <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-          <stringProp name="ThreadGroup.num_threads">1</stringProp>
-          <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-          <stringProp name="ThreadGroup.loops">1</stringProp>
-          <stringProp name="ThreadGroup.duration"></stringProp>
-          <stringProp name="ThreadGroup.delay"></stringProp>
-          <stringProp name="ThreadGroup.scheduler">false</stringProp>
-          <!-- guiclass and testclass for the ThreadGroup -->
-          <stringProp name="ThreadGroup.guiclass">ThreadGroupGui</stringProp>
-          <stringProp name="ThreadGroup.testclass">ThreadGroup</stringProp>
-          <hashTree>
-            <HTTPSamplerProxy testname="Google Request" enabled="true">
-              <!-- HTTP Sampler Specific Attributes -->
-              <stringProp name="HTTPSampler.domain">www.google.com</stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
-              <stringProp name="HTTPSampler.path">/</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <!-- guiclass and testclass for the HTTP Sampler -->
-              <stringProp name="HTTPSampler.guiclass">HttpTestSampleGui</stringProp>
-              <stringProp name="HTTPSampler.testclass">HTTPSamplerProxy</stringProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-          </hashTree>
-        </ThreadGroup>
-      </hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Flask Test" enabled="true">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <stringProp name="TestPlan.comments">Testing Flask server running on localhost</stringProp>
     </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <longProp name="ThreadGroup.start_time">1143889321000</longProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">5</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <longProp name="ThreadGroup.end_time">1143889321000</longProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Flask Request" enabled="true">
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <stringProp name="HTTPSampler.follow_redirects">true</stringProp>
+          <stringProp name="HTTPSampler.auto_redirects">false</stringProp>
+          <stringProp name="HTTPSampler.use_keepalive">true</stringProp>
+          <stringProp name="HTTPSampler.postBodyRaw">false</stringProp>
+          <boolProp name="HTTPSampler.embedded_url_re">false</boolProp>
+          <stringProp name="HTTPSampler.connect_timeout">2000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">10000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
   </hashTree>
 </jmeterTestPlan>
