@@ -3,15 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/KITAA/DevOps-SC.git'
-      }
-    }
-
-    stage('Debug Git') {
-      steps {
-        sh 'git branch'
-        sh 'git status'
-        sh 'ls -la'
+        git branch: 'main', url: 'https://github.com/KITAA/DevOps-SC.git'
       }
     }
 
