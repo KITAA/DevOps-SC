@@ -2,14 +2,43 @@
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
   <hashTree>
     <TestPlan testname="Simple Test Plan" enabled="true">
+      <!-- Test Plan Specific Attributes -->
+      <stringProp name="TestPlan.comments"></stringProp>
+      <stringProp name="TestPlan.user_defined_variables"></stringProp>
+      <boolProp name="TestPlan.enable_tearDown_threadgroups">false</boolProp>
+      <stringProp name="TestPlan.teardown_on_shutdown">false</stringProp>
+      <stringProp name="TestPlan.serialize_threadgroups">false</stringProp>
+      <stringProp name="TestPlan.scheduler">false</stringProp>
+      <stringProp name="TestPlan.duration"></stringProp>
+      <stringProp name="TestPlan.delay"></stringProp>
+      <stringProp name="TestPlan.connect_timeout"></stringProp>
+      <stringProp name="TestPlan.response_timeout"></stringProp>
+      <!-- guiclass and testclass for the TestPlan -->
+      <stringProp name="TestPlan.guiclass">TestPlanGui</stringProp>
+      <stringProp name="TestPlan.testclass">TestPlan</stringProp>
       <hashTree>
         <ThreadGroup testname="Users" enabled="true">
+          <!-- Thread Group Specific Attributes -->
+          <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+          <stringProp name="ThreadGroup.num_threads">1</stringProp>
+          <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+          <stringProp name="ThreadGroup.loops">1</stringProp>
+          <stringProp name="ThreadGroup.duration"></stringProp>
+          <stringProp name="ThreadGroup.delay"></stringProp>
+          <stringProp name="ThreadGroup.scheduler">false</stringProp>
+          <!-- guiclass and testclass for the ThreadGroup -->
+          <stringProp name="ThreadGroup.guiclass">ThreadGroupGui</stringProp>
+          <stringProp name="ThreadGroup.testclass">ThreadGroup</stringProp>
           <hashTree>
             <HTTPSamplerProxy testname="Google Request" enabled="true">
+              <!-- HTTP Sampler Specific Attributes -->
               <stringProp name="HTTPSampler.domain">www.google.com</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.path">/</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
+              <!-- guiclass and testclass for the HTTP Sampler -->
+              <stringProp name="HTTPSampler.guiclass">HttpTestSampleGui</stringProp>
+              <stringProp name="HTTPSampler.testclass">HTTPSamplerProxy</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
