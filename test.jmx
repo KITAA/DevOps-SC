@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan testname="Simple Test Plan" enabled="true">
+      <hashTree>
+        <ThreadGroup testname="Users" enabled="true">
+          <hashTree>
+            <HTTPSamplerProxy testname="Google Request" enabled="true">
+              <stringProp name="HTTPSampler.domain">www.google.com</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </ThreadGroup>
+      </hashTree>
+    </TestPlan>
+  </hashTree>
+</jmeterTestPlan>
