@@ -7,6 +7,15 @@ pipeline {
       }
     }
 
+    stage('Debug Git') {
+      steps {
+        sh 'git branch'
+        sh 'git status'
+        sh 'ls -la'
+      }
+    }
+
+
     stage('Check Docker Installation') {
       steps {
         echo 'Checking if Docker is installed and accessible...'
